@@ -34,9 +34,11 @@ public class Ports_SerializingTest {
 		assertEquals(objectMapper.writeValueAsString(ports), jsonWithDoubleBindingForOnePort);
 	}
 	
+
 	@Test
 	public void serializingEmptyBinding() throws Exception {
 		Ports ports = new Ports(ExposedPort.tcp(80), new Binding(null, null));
 		assertEquals(objectMapper.writeValueAsString(ports), "{\"80/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"\"}]}");
 	}
+
 }

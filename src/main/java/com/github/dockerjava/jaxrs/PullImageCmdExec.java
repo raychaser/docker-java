@@ -31,7 +31,8 @@ public class PullImageCmdExec extends AbstrDockerCmdExec<PullImageCmd, InputStre
 		LOGGER.trace("POST: {}", webResource);
         return resourceWithOptionalAuthConfig(command, webResource.request())
 				.accept(MediaType.APPLICATION_OCTET_STREAM_TYPE)
-				.post(entity(Response.class, MediaType.APPLICATION_JSON)).readEntity(InputStream.class);
+				.post(entity(Response.class, MediaType.APPLICATION_JSON))
+				.readEntity(InputStream.class);
 	}
 
     private Invocation.Builder resourceWithOptionalAuthConfig(PullImageCmd command, Invocation.Builder request) {
